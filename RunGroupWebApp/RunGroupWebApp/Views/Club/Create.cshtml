@@ -1,0 +1,53 @@
+﻿@using RunGroupWebApp.Data.Enum
+@using RunGroupWebApp.ViewModels
+@model CreateClubViewModel
+
+<form asp-action="Create" asp-controller="Club" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input asp-for="Title" class="form-control" aria-describedby="Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Description</label>
+        <input asp-for="Description" class="form-control" aria-describedby="Description">
+        <span asp-validation-for="Description" class="text-danger"></span>
+
+    </div>
+    @*<div class="mb-3">
+    <label asp-for="Image" class="form-label">Image</label>
+    <input asp-for="Image" class="form-control" aria-describedby="Image">
+    <span asp-validation-for="Image" class="text-danger"></span>
+
+    </div>*@
+    <div class="mb-3">
+        <label asp-for="ClubCategory" class="form-label">ClubCategory</label>
+        <select class="form-select" asp-for="ClubCategory" asp-items="@Html.GetEnumSelectList<ClubCategory>()">
+            <option>--Select--</option>
+        </select>
+        @*<input asp-for="ClubCategory" class="form-control" aria-describedby="Address.Street">*@
+        <span asp-validation-for="ClubCategory" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address!.Street" class="form-label">Street</label>
+        <input asp-for="Address!.Street" class="form-control">
+        <span asp-validation-for="Address!.Street" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address!.City" class="form-label">City</label>
+        <input asp-for="Address!.City" class="form-control">
+        <span asp-validation-for="Address!.City" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address!.State" class="form-label">State</label>
+        <input asp-for="Address!.State" class="form-control">
+        <span asp-validation-for="Address!.Street" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Image" class="form-label">Image</label>
+        <input type="file" asp-for="Image" class="form-control" aria-describedby="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Create</button>
+</form>

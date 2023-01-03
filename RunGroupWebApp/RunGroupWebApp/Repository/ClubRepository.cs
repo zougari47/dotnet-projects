@@ -29,7 +29,7 @@ namespace RunGroupWebApp.Repository
 
         public async Task<IEnumerable<Club>> GetAll()
         {
-            return await _context.Clubs.ToListAsync();
+            return (IEnumerable<Club>)await _context.Clubs.ToListAsync();
         }
 
         public async Task<Club> GetByIdAsync(int id)
