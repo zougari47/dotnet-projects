@@ -14,6 +14,7 @@
                     <p class="card-text">@item.Description</p>
                     <a class="btn btn-primary" asp-controller="Club" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     <a class="btn btn-secondary" asp-controller="Club" asp-action="Detail" asp-route-id="@item.Id">View</a>
+                    <a class="btn btn-danger" asp-controller="Club" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </div>
             </div>
         </li>
