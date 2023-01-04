@@ -12,7 +12,7 @@
                     <h5 class="card-title">@item.Title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">@item.RaceCategory</h6>
                     <p class="card-text">@item.Description</p>
-                    <a class="btn btn-primary">Edit</a>
+                    <a class="btn btn-primary" asp-controller="Race" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     <a class="btn btn-secondary" asp-controller="Race" asp-action="Detail" asp-route-id="@item.Id">View</a>
                 </div>
             </div>
