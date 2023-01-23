@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.EntityFrameworkCore;
 using RunGroupWebApp.Data;
 using RunGroupWebApp.Data.intefaces;
 using RunGroupWebApp.Models;
@@ -29,6 +29,28 @@ namespace RunGroupWebApp.Repository
             Console.WriteLine(curUser);
             var userRaces = _context.Races.Where(r => r.AppUserId == curUser);
             return userRaces.ToList();
+        }
+
+        public async Task<AppUser> GetUserById(string id)
+        {
+            return await _context.Users.FindAsync(id);
+        }
+
+        public async Task<AppUser> GetByIdNoTracking(string id)
+        {
+            return _context.Users.Where(u => u.Id == id).AsNoTracking().FirstOrDefault();
+        }
+
+        public bool Update(AppUser user)
+        {
+            _context.Users.Update(user);
+            return Save();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0;
         }
     }
 }
