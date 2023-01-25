@@ -5,11 +5,9 @@
     ViewData["Title"] = "Sign up";
 }
 
-<div class="row">
-    <div class="col-md-6 offset-3">
-        <p>
-            <h4 class="text-center">Sign up for a new account</h4>
-        </p>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h4 class="text-center mb-4">Sign up for a new account</h4>
 
         @if (TempData["Error"] != null)
         {
@@ -18,8 +16,8 @@
             </div>
         }
 
-        <div class="row">
-            <div class="col-md-8 offset-2">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
                 <form asp-action="Register">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -40,8 +38,8 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <input class="btn btn-outline-success float-right" type="submit" value="Sign up" />
-                        <a class="btn btn-outline-secondary" asp-controller="Race" asp-action="Index">Cancel</a>
+                        <input class="btn btn-outline-primary w-100 mb-3" type="submit" value="Sign up" />
+                        <a class="btn btn-danger w-100" asp-controller="Race" asp-action="Index">Cancel</a>
                     </div>
                 </form>
             </div>

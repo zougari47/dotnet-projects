@@ -1,7 +1,7 @@
 ﻿@using RunGroupWebApp.ViewModels;
 @model List<UserViewModel>
 
-<h1>change please1</h1>
+<h1 class="text-center mb-4">List of Users</h1>
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
@@ -15,13 +15,19 @@
                             <p class="card-text">@item.Mileage</p>
                             <p class="card-text">@item.Pace</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a type="btn btn-success" asp-controller="User" asp-action="Detail" asp-route-id="@item.Id"
-                                   class="btn btn-sm btn-outline-secondary">View</a>
+                                <div class="btn-groupf d-flex gap-3">
+                                    <a asp-controller="User" asp-action="Detail" asp-route-id="@item.Id"
+                                   class="btn btn-primary">
+                                        View
+                                    </a>
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                                     {
-                                        <a asp-controller="Club" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                        <a asp-controller="Club" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Delete</a>
+                                        <a asp-controller="Club" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">
+                                            Edit
+                                        </a>
+                                        <a asp-controller="Club" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="delete">
+                                            Delete
+                                        </a>
                                     }
                                 </div>
                             </div>

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Club>
 
-<h1 class="text-success text-center mb-5">Hello from club view</h1>
+<h1 class="text-center mb-5 border-bottom border-primary">List of clubs</h1>
 
-<ul class="row row-cols-3 list-unstyled">
+<ul class="row row-cols-md-2 row-cols-xl-3 list-unstyled">
     @foreach (var item in Model)
     {
         <li class="mb-3">
@@ -12,10 +12,10 @@
                     <h5 class="card-title">@item.Title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">@item.ClubCategory</h6>
                     <p class="card-text">@item.Description</p>
-                    <a class="btn btn-secondary" asp-controller="Club" asp-action="Detail" asp-route-id="@item.Id">View</a>
-                    @if (User.Identity!.IsAuthenticated && User.IsInRole("Admin"))
+                    <a class="btn btn-primary" asp-controller="Club" asp-action="Detail" asp-route-id="@item.Id">View</a>
+                    @if (User.Identity!.IsAuthenticated && User.IsInRole("admin"))
                     {
-                        <a class="btn btn-primary" asp-controller="Club" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-info" asp-controller="Club" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                         <a class="btn btn-danger" asp-controller="Club" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
 
                     }

@@ -17,6 +17,7 @@ namespace RunGroupWebApp.Controllers
             _photoService = photoService;
             _httpContextAccessor = httpContextAccessor;
         }
+        [HttpGet("Races")]
         public async Task<IActionResult> Index()
         {
             IEnumerable<Race> races = await _raceRepository.GetAll();

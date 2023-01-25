@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RunGroupWebApp.Data;
 using RunGroupWebApp.Data.intefaces;
 using RunGroupWebApp.Models;
 using RunGroupWebApp.ViewModels;
-using System.Reflection;
 
 namespace RunGroupWebApp.Controllers
 {
@@ -20,6 +17,7 @@ namespace RunGroupWebApp.Controllers
             _photoService = photoService;
             _httpContextAccessor = httpContextAccessor;
         }
+        [HttpGet("Clubs")]
         public async Task<IActionResult> Index()
         {
             IEnumerable<Club> clubs = await _clubRepository.GetAll();
